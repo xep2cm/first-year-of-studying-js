@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <script src="js/practice.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Калькулятор</h1>
+            <div class="form-control__container">
+                <input 
+                    type="number" 
+                    class="form-control"
+                    placeholder="Введите первое число"
+                    id="input1"
+                    value="10"
+                >
+                <div class="btn__symbol">
+                    <button class="btn__plus" id="plus">+</button>
+                    <button class="btn__minus" id="minus">-</button>
+                    <button class="btn__multiply" id="multiply">*</button>
+                    <button class="btn__division" id="division">:</button>
+                </div>
+                <input 
+                    type="number" 
+                    class="form-control"
+                    placeholder="Введите второе число"
+                    id="input2"
+                    value="5"
+                >
+            </div>
+            <button class="btn__calc" id="submit">
+                Вычислить
+            </button>
+            <div class="result">
+                <h3>Результат:</h3>
+                <p id="result" class="result__itog">
+                    15
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
