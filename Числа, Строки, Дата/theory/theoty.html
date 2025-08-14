@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Шпаргалка по основам JavaScript: Числа, Строки, Дата</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 2rem;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul li {
+            list-style-type: disc;
+            margin-left: 2rem;
+        }
+        pre {
+            background-color: #fafafa;
+            padding: 1rem;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Шпаргалка по основам JavaScript: Числа, Строки, Дата</h1>
+
+<div id="numbers-section">
+    <h2>Числа в JavaScript</h2>
+    <p>JavaScript представляет числа двумя основными способами:</p>
+    <ul>
+        <li><strong>Number</strong>: обычный числовой тип данных, используемый для всех видов чисел (целых и дробных). Все числа хранятся в виде двойных с плавающей запятой IEEE-754.</li>
+        <li><strong>BigInt</strong>: специальный тип для поддержки очень больших целых чисел, которые превышают пределы обычного Number-типа.</li>
+    </ul>
+    <p>Основные свойства и методы чисел:</p>
+    <ul>
+        <li><code>toFixed(n)</code>: округляет число до n знаков после запятой.</li>
+        <li><code>toPrecision(n)</code>: выводит число с заданной точностью (общим количеством цифр).</li>
+        <li><code>Math.random()</code>: возвращает случайное число от 0 до 1.</li>
+        <li><code>parseFloat(str)</code>, <code>parseInt(str)</code>: преобразуют строку в число.</li>
+    </ul>
+    <pre><code>let x = 10;
+x += 5; // 15
+console.log(x.toFixed(2)); // "15.00"</code></pre>
+</div>
+
+<div id="strings-section">
+    <h2>Строки в JavaScript</h2>
+    <p>Строковые литералы в JavaScript создаются несколькими способами:</p>
+    <ul>
+        <li>Одинарные кавычки (' ').</li>
+        <li>Двойные кавычки (" ").</li>
+        <li>Шаблонные строки (` `), позволяющие встраивание выражений.</li>
+    </ul>
+    <p>Методы строк:</p>
+    <ul>
+        <li><code>length</code>: свойство, возвращающее длину строки.</li>
+        <li><code>slice(start, end)</code>: извлекает часть строки.</li>
+        <li><code>split(separator)</code>: делит строку на массив по указанному разделителю.</li>
+        <li><code>trim()</code>: удаляет пробелы в начале и конце строки.</li>
+    </ul>
+    <pre><code>let str = "Привет мир!";
+console.log(str.slice(0, 5)); // "Привет"</code></pre>
+</div>
+
+<div id="dates-section">
+    <h2>Работа с датой и временем в JavaScript</h2>
+    <p>Объект Date используется для работы с датой и временем. Конструктор Date принимает различные форматы инициализации:</p>
+    <ul>
+        <li>Без аргументов — текущая дата и время.</li>
+        <li>Год, месяц, день, часы, минуты, секунды, миллисекунды.</li>
+        <li>ISO формат даты (например, "2025-08-14").</li>
+    </ul>
+    <p>Основные методы объекта Date:</p>
+    <ul>
+        <li><code>getFullYear()</code>: возвращает полный год.</li>
+        <li><code>getMonth()</code>: возвращает номер месяца (0—11).</li>
+        <li><code>getHours()</code>, <code>getMinutes()</code>, <code>getSeconds()</code>: получение часов, минут и секунд соответственно.</li>
+        <li><code>toLocaleString(locale)</code>: форматирует дату согласно указанной локализации.</li>
+    </ul>
+    <pre><code>let now = new Date();
+console.log(now.getFullYear()); // Год, например 2025</code></pre>
+</div>
+
+    <!-- <script src="01-numbers.js"></script> -->
+    <!-- <script src="02-strings.js"></script> -->
+    <script src="03-function.js"></script>
+    <!-- <script src="numbers.js"></script> -->
+</body>
+</html>

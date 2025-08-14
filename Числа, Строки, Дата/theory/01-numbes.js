@@ -64,3 +64,46 @@ console.log(parseInt(10n) - 4)
 // ИЛИ
 console.log(10n - BigInt(4))
 
+
+// Math
+console.log(Math.E) // экспонента
+console.log(Math.PI) // 3,14159
+
+console.log(Math.sqrt(25))             // корень
+console.log(Math.pow(25, 3))           // степень
+console.log(Math.abs(-25))             // модуль
+console.log(Math.max(2, 5, 10, 199))   // функция берет много занчений и вовзращает максимальное из них
+console.log(Math.min(2, 5, 10, 199))   // функция берет много занчений и вовзращает минимальное из них
+
+const myNum = 5.6
+console.log(Math.floor(myNum))  // Округляет в меньше сторону 
+console.log(Math.ceil(myNum))   // Округляет в большую сторону
+console.log(Math.round(4.2))    // Округляет к ближайщему целому числу
+console.log(Math.trunc(myNum))  // Возвраещает всегда только целое число
+console.log(Math.random())      // При обновлении всегда принимает случайное значение в диапазоне от 0 до 1
+
+
+/**
+ * Простая логика, функция принимает любое значение от 10 до 1000, но дробное
+    
+const num1 = getRandomNumber(10, 1000)
+function getRandomNumber(min, max) {
+    return Math.random() * (max, min + 1) + min
+}
+
+console.log(num1)
+ */
+
+/**
+    Принимает случайное значение в диапозоне от 10 до 1000,
+    но уже целым чилом
+
+    
+    const num1 = getRandomNumber(10, 1000)
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max, min + 1) + min)
+    }
+    
+    console.log(num1)
+ */
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Шпаргалка по Git и VSCode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 2rem;
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background-color: #fafafa;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<h1>Шпаргалка по решению проблемы отсутствия изменений на GitHub после коммита в VSCode</h1>
+
+<div class="section">
+    <h2>Диагностика проблемы:</h2>
+    <ol>
+        <li><strong>Проверь, совершил ли ты коммит:</strong></li>
+        <ul>
+            <li>В окне Git панели VSCode должен быть зелёный индикатор.</li>
+            <li>Проверь статус командой:
+                <pre><code>git status</code></pre>
+            </li>
+        </ul>
+        
+        <li><strong>Посмотри историю коммитов:</strong></li>
+        <p>Команда для просмотра последнего коммита:</p>
+        <pre><code>git log</code></pre>
+    </ol>
+</div>
+
+<div class="section">
+    <h2>Решение проблемы:</h2>
+    <p>Если история коммитов нормальна, но изменений на GitHub нет, возможно, ты не отправил коммиты на удалённый сервер.</p>
+
+    <ol>
+        <li><strong>Проверь удалённые репозитории:</strong></li>
+        <p>Команда:</p>
+        <pre><code>git remote -v</code></pre>
+
+        <li><strong>Отправь коммиты на удалённый сервер:</strong></li>
+        <p>Используй команду:</p>
+        <pre><code>git push origin main</code></pre>
+
+        <li><strong>Проверь результат:</strong></li>
+        <p>Терминал покажет прогресс отправки коммитов.</p>
+
+        <li><strong>Перепроверь изменения на GitHub:</strong></li>
+        <p>Зайди на страницу репозитория и проверь наличие новых коммитов.</p>
+    </ol>
+</div>
+
+<div class="section">
+    <h2>Полезные советы:</h2>
+    <ul>
+        <li>Всегда проверяй статус рабочего каталога перед отправкой (<code>git status</code>).</li>
+        <li>Используй графический интерфейс VSCode для удобства управления изменениями.</li>
+        <li>При проблемах с подключением к удалённому репозиторию проверь настройки ключа SSH или перейди на HTTPS-аутентификацию.</li>
+    </ul>
+</div>
+
+<p>Эту шпаргалку можно использовать для быстрого повторного прохождения шагов и устранения возможных проблем при синхронизации с удалёнными серверами GitHub.</p>
+</body>
+</html>
