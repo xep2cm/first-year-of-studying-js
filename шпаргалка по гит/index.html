@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Шпаргалка по Git для Frontend-разработчика</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .command-block {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,.1);
+        }
+        
+        pre {
+            background-color: #f7f7f7;
+            padding: 10px;
+            overflow-x: auto;
+            display: block;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        code {
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        
+        p {
+            margin-top: 10px;
+        }
+        
+        /* Новый класс для стилизации ссылки */
+        a.tg-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2ca5e0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        a.tg-link:hover {
+            background-color: #238cd3;
+        }
+    </style>
+</head>
+<body>
+<h1>Шпаргалка по Git для frontend-разработчиков</h1>
+<div class="command-block">
+    <h2>Инициализация нового проекта:</h2>
+    <pre><code>git init</code></pre>
+    <p>Создает новый локальный git-репозиторий.</p>
+</div>
+
+<div class="command-block">
+    <h2>Клонирование существующего репозитория:</h2>
+    <pre><code>git clone <url></code></pre>
+    <p>Получаем копию удалённого репозитория на ваш компьютер.</p>
+</div>
+
+<div class="command-block">
+    <h2>Просмотр статуса изменений:</h2>
+    <pre><code>git status</code></pre>
+    <p>Показывает состояние файлов в рабочем каталоге и индексированной области.</p>
+</div>
+
+<div class="command-block">
+    <h2>Добавление файлов в staging area:</h2>
+    <pre><code>git add <file-name><br/>git add .</code></pre>
+    <p>Добавляет файл или все файлы в область подготовки (staging area).</p>
+</div>
+
+<div class="command-block">
+    <h2>Создание коммита:</h2>
+    <pre><code>git commit -m "<сообщение>"</code></pre>
+    <p>Фиксирует изменения с комментарием.</p>
+</div>
+
+<div class="command-block">
+    <h2>Просмотр истории коммитов:</h2>
+    <pre><code>git log</code></pre>
+    <p>Показывает историю всех коммитов.</p>
+</div>
+
+<div class="command-block">
+    <h2>Переход на ветку или тег:</h2>
+    <pre><code>git checkout <branch-or-tag></code></pre>
+    <p>Меняет активную ветвь или переходит на определенный тег/коммит.</p>
+</div>
+
+<div class="command-block">
+    <h2>Создание новой ветки:</h2>
+    <pre><code>git branch <name><br/>git checkout -b <name></code></pre>
+    <p>Создает новую ветку либо сразу переключается на нее.</p>
+</div>
+
+<div class="command-block">
+    <h2>Объединение ветвей:</h2>
+    <pre><code>git merge <branch-name></code></pre>
+    <p>Интегрирует изменения одной ветви в текущую рабочую ветвь.</p>
+</div>
+
+<div class="command-block">
+    <h2>Отправка изменений на удалённый репозиторий:</h2>
+    <pre><code>git push origin <branch-name></code></pre>
+    <p>Выгружает локальные изменения на удаленный сервер.</p>
+</div>
+
+<div class="command-block">
+    <h2>Обновление изменений с удаленного сервера:</h2>
+    <pre><code>git pull</code></pre>
+    <p>Синхронизирует вашу локальную версию с последней версией на удалённом сервере.</p>
+</div>
+
+<div class="command-block">
+    <h2>Отмена последнего коммита:</h2>
+    <pre><code>git reset HEAD~1 --hard</code></pre>
+    <p>Удаляет последний коммит и сбрасывает рабочее дерево к предыдущему состоянию.</p>
+</div>
+
+<div class="command-block">
+    <h2>Изменение сообщения последнего коммита:</h2>
+    <pre><code>git commit --amend -m "<new-message>"</code></pre>
+    <p>Позволяет изменить комментарий к последнему коммиту.</p>
+</div>
+
+<div class="command-block">
+    <h2>Работа с конфликтами слияния:</h2>
+    <pre><code>git mergetool</code></pre>
+    <p>Запускает графический интерфейс разрешения конфликтов.</p>
+</div>
+
+<div class="command-block">
+    <h2>Ежедневный сценарий работы:</h2>
+    <ol style="list-style-type: decimal;">
+        <li>Начинаем рабочий день, обновляем проект:<br/><code>git pull</code></li>
+        <li>Перед началом работы создаём новую ветку для конкретной фичи:<br/><code>git checkout -b feature/my-new-feature</code></li>
+        <li>Работаем над задачей, добавляем изменения:<br/><code>git add .</code></li>
+        <li>Комментируем изменения:<br/><code>git commit -m "Добавлена новая функциональность"</code></li>
+        <li>Проверяем статус:<br/><code>git status</code></li>
+        <li>Закидываем изменения на удалённый сервер:<br/><code>git push origin feature/my-new-feature</code></li>
+        <li>Открываем Pull Request на GitHub/GitLab.<br/>
+            После одобрения команды сливаем ветку обратно в main/master.<br/><code>git checkout main<br/>git merge feature/my-new-feature</code></li>
+        <li>Чистим локальное окружение от старых веток:<br/><code>git branch -d feature/my-new-feature</code></li>
+    </ol>
+</div>
+
+
+<a href="https://t.me/+IZu-rTlOsio5MGEy" target="_blank" class="tg-link">Присоединяйся к нашему чату в Telegram</a>
+</body>
+</html>
