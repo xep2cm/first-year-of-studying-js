@@ -61,12 +61,13 @@ console.log(sumAll(1, 2, 3, 4, 5))
 
 
 // Closures - функция, вкоторой есть другая функция
-function createPerson(name1) {
-    return function(lastname) {
-        console.log(name1 + ' ' + lastName)
+
+function createPerson(names) {
+    return function(lastName) {
+        console.log(names + ' ' + lastName)
     }
 }
 
-const addLastName = createPerson('Alex')
-const name1 = 'Alex'
-console.log('Minin')
+const addLastName = createPerson("Elena")
+addLastName('Min')
+addLastName('Pavel')
