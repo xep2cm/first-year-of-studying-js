@@ -71,8 +71,8 @@ const logger = {
 
 // const bound = logger.keys.bind(person)
 // bound(false)
-// logger.keys.call(person, false)
-// logger.keys.apply(person, [false])
+// logger.keys.call(person, false) - для не ограниченого кол параметров
+// logger.keys.apply(person, [false]) - принимает только два параметра, второй параметр всегда массив
 
 class Human {
   static isHuman = true
