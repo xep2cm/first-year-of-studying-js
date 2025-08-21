@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1. JavaScript. Что такое prototype.</title>
+    <script src="prototype.js" defer></script>
+</head>
+<body>
+    <script src="prototype.js"></script>
+    
+    <h1>JavaScript Prototype</h1>
+    <p><strong>Прототипное наследование</strong> — один из ключевых аспектов языка JavaScript. Оно позволяет объектам наследовать свойства и методы друг друга, создавая цепочку прототипов (<em>Prototype Chain</em>). Каждый объект имеет ссылку на свой прототип, который используется для поиска свойств и методов, отсутствующих непосредственно в самом объекте.</p>
+    
+    <h2>Что такое Прототип?</h2>
+    <ul>
+        <li>Каждый объект в JavaScript имеет свойство <code>__proto__</code>, которое ссылается на его прототип.</li>
+        <li>Объекты создаются с использованием конструктора (например, <code>new Object()</code>) или литерала объекта (<code>{...}</code>), причем каждый конструктор также обладает собственным методом <code>.prototype</code>.</li>
+        <li>При обращении к свойствам объекта сначала проверяется наличие этих свойств в самом объекте, и лишь потом идет обращение к прототипу.</li>
+    </ul>
+    
+    <h2>Пример:</h2>
+    <pre><code class="language-javascript">
+// Создаем простой объект Person
+function Person(name) {
+    this.name = name;
+}
+
+// Добавляем метод greet в прототип Person
+Person.prototype.greet = function() {
+    console.log(`Привет! Меня зовут ${this.name}.`);
+};
+
+const person = new Person('Иван');
+person.greet(); // Привет! Меня зовут Иван.
+    </code></pre>
+    
+    <h2>Заключение</h2>
+    <p>Понимание системы прототипов крайне важно для освоения основ JavaScript и эффективного программирования на этом языке. Именно благодаря этому механизму объекты приобретают гибкость и возможность повторного использования функционала.</p>
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 2. Контекст this</title>
+    <script src="this.js" defer></script>
+</head>
+<body>
+    <h1 class="title">Что такое контекст 'this'?</h1>
+    
+    <!-- Основная информация -->
+    <p>'this' — ключевое слово в JavaScript, которое ссылается на объект, вызвавший текущую функцию.</p>
+    <ul>
+        <li><strong>Глобальная область видимости:</strong> Если функция вызывается вне объекта, 'this' ссылается на глобальный объект ('window').</li>
+        <li><strong>Методы объектов:</strong> Внутри методов объектов 'this' относится к самому объекту.</li>
+        <li><strong>Стрелочные функции:</strong> Стрелочная функция не имеет собственного контекста 'this', а наследует его от родительской области видимости.</li>
+    </ul>
+
+    <!-- Примеры работы с методами -->
+    <pre><code>
+// Пример 1: Простой метод объекта
+const user = {
+    name: 'Иван',
+    sayName() { console.log(this.name); }
+};
+user.sayName(); // Выведет 'Иван'
+
+// Пример 2: Передача метода другому объекту
+const anotherUser = {};
+anotherUser.sayName = user.sayName;
+anotherUser.sayName(); // undefined, потому что now context is different
+    </code></pre>
+
+    <!-- Методы изменения контекста -->
+    <h2>Изменение контекста выполнения</h2>
+    <ol>
+        <li><strong>.call():</strong> Позволяет вызвать функцию с заданным объектом и аргументами.<br/>
+            <code>myFunction.call(contextObject, arg1, arg2)</code></li>
+        
+        <li><strong>.apply():</strong> Аналогично .call(), но аргументы передаются массивом.<br/>
+            <code>myFunction.apply(contextObject, [arg1, arg2])</code></li>
+        
+        <li><strong>.bind():</strong> Создает новую функцию с фиксированным контекстом.<br/>
+            <code>let newFunc = myFunction.bind(contextObject);</code></li>
+    </ol>
+
+    <!-- Демонстрационный пример -->
+    <button onclick="showContext()">Показать контекст</button>
+    <div id="output"></div>
+
+    <script>
+        function showContext() {
+            const outputDiv = document.getElementById('output');
+            
+            // Глобальное использование
+            let globalThisExample = () => `Контекст: ${this}`;
+            outputDiv.innerHTML += `<p>Глобально: ${globalThisExample()}</p>`;
+            
+            // Объект
+            const obj = {
+                data: 'Привет!',
+                printData() { return this.data; },
+            };
+            outputDiv.innerHTML += `<p>Объект: ${obj.printData()}</p>`;
+            
+            // Изменяем контекст с помощью call/apply/bind
+            const otherObj = { data: 'Мир!' };
+            outputDiv.innerHTML += `<p>Используя call: ${obj.printData.call(otherObj)}</p>`;
+            outputDiv.innerHTML += `<p>Используя apply: ${obj.printData.apply(otherObj)}</p>`;
+            
+            // Bind создает новую функцию с закрепленным контекстом
+            const boundPrintData = obj.printData.bind({data: 'Привет мир!'});
+            outputDiv.innerHTML += `<p>Используя bind: ${boundPrintData()}</p>`;
+        }
+    </script>
+</body>
+</html>
