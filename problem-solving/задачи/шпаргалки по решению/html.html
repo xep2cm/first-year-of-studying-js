@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Шпаргалка по работе с массивами и объектами в JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+        
+        pre {
+            background-color: #fafafa;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        
+        code {
+            background-color: #fafafa;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<h1>Шпаргалка по работе с массивами и объектами в JavaScript</h1>
+
+<p>Эти материалы помогут быстро вспомнить ключевые концепции и структуры, необходимые для эффективного взаимодействия с массивами и объектами.</p>
+
+<h2>Работа с массивами объектов</h2>
+
+<p>Массивы объектов представляют собой наиболее распространённый способ хранения сложных данных:</p>
+
+<pre><code class="language-javascript">const users = [
+    { id: 1, name: 'Иван', email: 'ivan@example.com' },
+    { id: 2, name: 'Марина', email: 'marina@example.com' },
+];</code></pre>
+
+<h2>Основные операции над массивами объектов</h2>
+
+<h3>Фильтрация по условию</h3>
+
+<p>Отбор записей по какому-либо признаку:</p>
+
+<pre><code class="language-javascript">users.filter(user => user.id === 1);</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">const filteredUsers = users.filter(user => user.email.includes('@example.com'));
+// Результат: [{id: 1, name: 'Иван', email: 'ivan@example.com'}, {id: 2, name: 'Марина', email: 'marina@example.com'}]</code></pre>
+
+<h3>Преобразование массива (Map)</h3>
+
+<p>Создание нового массива путём преобразования каждого элемента:</p>
+
+<pre><code class="language-javascript">users.map(user => user.name);</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">const names = users.map(user => user.name);
+// Результат: ["Иван", "Марина"]</code></pre>
+
+<h3>Агрегирование (Reduce)</h3>
+
+<p>Накопление суммарного значения:</p>
+
+<pre><code class="language-javascript">users.reduce((sum, user) => sum + user.id, 0);</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">const totalIds = users.reduce((sum, user) => sum + user.id, 0);
+// Результат: 3</code></pre>
+
+<h3>Группировка данных</h3>
+
+<p>Разделение данных по группам:</p>
+
+<pre><code class="language-javascript">users.reduce((groups, user) => {
+    groups[user.gender] ||= []; // ES2022 синтаксис инициализации массива
+    groups[user.gender].push(user);
+    return groups;
+}, {});</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">const groupedByGender = users.reduce((groups, user) => {
+    groups[user.gender] ||= [];
+    groups[user.gender].push(user);
+    return groups;
+}, {});
+// Результат: {"male": [], "female": []}</code></pre>
+
+<h3>Поиск уникального набора значений</h3>
+
+<p>Извлечение уникальных значений:</p>
+
+<pre><code class="language-javascript">const uniqueEmails = [...new Set(users.map(user => user.email))];</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">const emails = users.map(user => user.email);
+const uniqueEmails = [...new Set(emails)];
+// Результат: ["ivan@example.com", "marina@example.com"]</code></pre>
+
+<h3>Простой перебор массива</h3>
+
+<p>Перебор без изменений:</p>
+
+<pre><code class="language-javascript">users.forEach(user => console.log(user.name));</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">users.forEach(user => console.log(`${user.name}: ${user.email}`));
+// Результат: "Иван: ivan@example.com", "Марина: marina@example.com"</code></pre>
+
+<h2>Дополнительные полезные техники</h2>
+
+<h3>Доступ к глубоким вложениям</h3>
+
+<p>Можно обращаться к внутренним ключам объекта:</p>
+
+<pre><code class="language-javascript">user.address.city;</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">const addressCity = user.address.city;
+// Результат: Москва</code></pre>
+
+<h3>Определение количества элементов по условию</h3>
+
+<p>Подсчёт количества подходящих записей:</p>
+
+<pre><code class="language-javascript">users.filter(user => user.id > 1).length;</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">const count = users.filter(user => user.id > 1).length;
+// Результат: 1</code></pre>
+
+<h3>Поиск первого совпадающего элемента</h3>
+
+<p>Быстрый поиск первой подходящей записи:</p>
+
+<pre><code class="language-javascript">users.find(user => user.id === 1);</code></pre>
+
+<p>Пример использования:</p>
+
+<pre><code class="language-javascript">const foundUser = users.find(user => user.id === 1);
+// Результат: {id: 1, name: 'Иван', email: 'ivan@example.com'}</code></pre>
+
+<h2>Советы по улучшению кода</h2>
+
+- Используйте осмысленные и короткие имена переменных.
+- Пользуйтесь деструктуризацией для удобного извлечения данных:
+
+<pre><code class="language-javascript">const { name, email } = user;</code></pre>
+
+- Объединяйте различные методы для оптимизации кода и повышения производительности.
+
+---
+
+<h2>Заключение</h2>
+
+<p>Применение этих техник значительно упростит взаимодействие с данными в JavaScript и повысит эффективность разработки приложений.</p>
+
+</body>
+</html>

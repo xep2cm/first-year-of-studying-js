@@ -150,3 +150,26 @@ console.log(person[key])
 person.getFullName()
  */
 
+
+
+const cars = [
+    'Haval',
+    'Gelly',
+    'Chery',
+    'Priora',
+    'OMODA',
+    'Changan',
+    'Lifan',
+    'JAC'
+]
+
+const newCars = cars.map((item) => {
+    if (item !== 'Priora') {
+        return `${item} - китайское говно`
+    }
+
+    return item
+})
+
+console.log(newCars)
+console.log(cars)

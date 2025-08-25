@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок 5. JavaScript. Promise.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f9f9f9;
+            border-radius: 3px;
+            padding: 2px 5px;
+        }
+    </style>
+    <script src="promise.js" defer></script>
+</head>
+<body>
+<h1>Урок 5. JavaScript. Promise.</h1>
+<div class="section">
+    <h2>Что такое Promise?</h2>
+    <p><strong>Promise</strong> — это объект, представляющий собой обещание завершения асинхронной операции и её результата. Обещания позволяют лучше организовать код и упростить обработку ошибок в асинхронных операциях.</p>
+</div>
+<div class="section">
+    <h2>Основные состояния:</h2>
+    <ul>
+        <li><code>pending</code>: начальное состояние ожидания результата.</li>
+        <li><code>fulfilled</code>: операция успешно выполнена.</li>
+        <li><code>rejected</code>: произошла ошибка во время выполнения операции.</li>
+    </ul>
+</div>
+<div class="section">
+    <h2>Методы Promise:</h2>
+    <ol>
+        <li><code>.then()</code>: метод обрабатывает успешное завершение промиса.</li>
+        <li><code>.catch()</code>: метод обрабатывает ошибку промиса.</li>
+        <li><code>.finally()</code>: выполняется независимо от успеха или отказа промиса.</li>
+    </ol>
+</div>
+<div class="section">
+    <h2>Пример использования Promise:</h2>
+    <pre><code>// Пример использования Promise
+
+const delay = ms => new Promise(resolve => setTimeout(() => resolve(ms), ms));
+
+delay(2000)
+    .then(result => console.log(`Прошло ${result} миллисекунд`))
+    .catch(error => console.error('Ошибка:', error))
+    .finally(() => console.log('Операция завершена'));
+</code></pre>
+</div>
+</body>
+</html>
